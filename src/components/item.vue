@@ -45,6 +45,8 @@ export default {
 
     .item {
 
+        transition: all 1s;
+
         display: flex;
         flex-direction: column;
         position: relative;

@@ -8,11 +8,15 @@
       @added="addItem"
       ></Form>
         <div class="item-wrapper">
-          <Item
-          v-bind:item="item"
-          v-for="item in items"
-          @removeItem="removeItem"
-          ></Item>
+          <transition-group class="item-wrapper" name="list" tag="p">
+              <Item
+              v-bind:key="item"
+              class="list-item"
+              v-bind:item="item"
+              v-for="item in items"
+              @removeItem="removeItem"
+              ></Item>
+          </transition-group>
         </div>
       </div>
     </div>
@@ -83,10 +87,13 @@ export default {
       }
     },
   },
-  mounted() {
+  beforeMount() {
     if (localStorage.getItem('items') != null) {
       this.items = JSON.parse(localStorage.getItem('items'));
     }
+  },
+  mounted() {
+    //-preloader
   },
   components: {
     Form,
@@ -97,6 +104,20 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+
+
+.list-leave-active {
+  transition: all 0.3s;
+  position: absolute;
+}
+.list-enter, .list-leave-to  {
+  opacity: 0;
+}
+.list-move {
+  transition: transform 0.3s;
+}
+
 
 /* source-sans-pro-regular - latin_cyrillic */
 @font-face {

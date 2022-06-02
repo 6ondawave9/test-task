@@ -1,19 +1,8 @@
-# test_task_first_try
+# test_task
+Тестовое задание для idaproject
 
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
+## Запуск проекта на локальной машине
 npm run serve
-```
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Версия Node
+'16.15.0'
